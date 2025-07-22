@@ -43,13 +43,17 @@ Runner Game/
 
 ## What's New in Stage 3?
 
-This stage completes the core game functionality by adding obstacles, collision detection, and a complete game over/restart cycle.
+This stage completes the core game functionality by adding obstacles, collision
+detection, and a complete game over/restart cycle.
 
 ## `game.ts`
 
 ### 1. Obstacle System
 
-In the client side `game.js` file, we added a system to spawn obstacles at random intervals. The obstacles are represented as objects with properties like `x`, `y`, `width`, `height`, and `type`. The game now spawns different types of cacti that the dino must jump to avoid:
+In the client side `game.js` file, we added a system to spawn obstacles at
+random intervals. The obstacles are represented as objects with properties like
+`x`, `y`, `width`, `height`, and `type`. The game now spawns different types of
+cacti that the dino must jump to avoid:
 
 ```javascript
 spawnObstacle() {
@@ -73,7 +77,9 @@ spawnObstacle() {
 
 #### 2. Collision Detection
 
-We implemented a collision detection system that checks if the dino collides with any obstacles. If a collision is detected, the game transitions to the game over state:
+We implemented a collision detection system that checks if the dino collides
+with any obstacles. If a collision is detected, the game transitions to the game
+over state:
 
 ```javascript
 checkCollisions() {
@@ -91,7 +97,9 @@ checkCollisions() {
 
 #### 3. High Score System
 
-We added a high score system that tracks the highest score achieved during gameplay. The high score is saved in `localStorage` and displayed on the game over screen:
+We added a high score system that tracks the highest score achieved during
+gameplay. The high score is saved in `localStorage` and displayed on the game
+over screen:
 
 ```javascript
 saveHighScore() {
@@ -105,7 +113,9 @@ saveHighScore() {
 
 #### 4. Progressive Difficulty
 
-As the player progresses and scores points, the game becomes more challenging. We implemented a system to increase the game speed and obstacle spawn rate based on the player's score:
+As the player progresses and scores points, the game becomes more challenging.
+We implemented a system to increase the game speed and obstacle spawn rate based
+on the player's score:
 
 ```javascript
 updateGameDifficulty() {
@@ -129,11 +139,14 @@ updateGameDifficulty() {
 </div>
 ```
 
-The game UI now includes a dedicated high score display alongside the current score. The `score-container` div groups both score elements together for better visual organization.
+The game UI now includes a dedicated high score display alongside the current
+score. The `score-container` div groups both score elements together for better
+visual organization.
 
 ## `styles.css`
 
-**Stage 3 Updates:** Enhanced styling to support the high score display and improved game UI organization.
+**Stage 3 Updates:** Enhanced styling to support the high score display and
+improved game UI organization.
 
 ### Running Stage 3
 
@@ -141,7 +154,9 @@ The game UI now includes a dedicated high score display alongside the current sc
 deno run dev
 ```
 
-Navigate to [http://localhost:8000](http://localhost:8000) and experience the complete dino runner game with obstacles, collision detection, and high score tracking!
+Navigate to [http://localhost:8000](http://localhost:8000) and experience the
+complete dino runner game with obstacles, collision detection, and high score
+tracking!
 
 ## Stage 3 Accomplishments
 
@@ -156,4 +171,12 @@ By completing Stage 3, you'll have:
 - ✅ Enhanced visual design with animated dino and varied obstacles
 - ✅ Created a polished game over screen with restart functionality
 
-The game is now fully playable and provides the classic infinite runner experience! 🎮
+The game is now fully playable and provides the classic infinite runner
+experience! 🎮
+
+## Next steps
+
+You can now proceed to
+[Stage 4](https://github.com/thisisjofrank/game-tutorial-4), where we will add a
+database to store high scores and implement a leaderboard system. We'll also add
+a customization feature to allow players to change the appearance of the game.

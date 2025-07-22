@@ -110,19 +110,20 @@ class DinoGame {
   spawnObstacle() {
     // Random obstacle types
     const obstacleTypes = [
-      { width: 20, height: 40, type: 'cactus-small' },
-      { width: 25, height: 50, type: 'cactus-medium' },
-      { width: 30, height: 35, type: 'cactus-wide' }
+      { width: 20, height: 40, type: "cactus-small" },
+      { width: 25, height: 50, type: "cactus-medium" },
+      { width: 30, height: 35, type: "cactus-wide" },
     ];
-    
-    const obstacle = obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
-    
+
+    const obstacle =
+      obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)];
+
     this.obstacles.push({
       x: this.canvas.width,
       y: this.groundY - obstacle.height,
       width: obstacle.width,
       height: obstacle.height,
-      type: obstacle.type
+      type: obstacle.type,
     });
   }
 
@@ -152,10 +153,12 @@ class DinoGame {
     if (this.gameState !== "playing") return;
 
     for (let obstacle of this.obstacles) {
-      if (this.dino.x < obstacle.x + obstacle.width &&
-          this.dino.x + this.dino.width > obstacle.x &&
-          this.dino.y < obstacle.y + obstacle.height &&
-          this.dino.y + this.dino.height > obstacle.y) {
+      if (
+        this.dino.x < obstacle.x + obstacle.width &&
+        this.dino.x + this.dino.width > obstacle.x &&
+        this.dino.y < obstacle.y + obstacle.height &&
+        this.dino.y + this.dino.height > obstacle.y
+      ) {
         this.gameOver();
         return;
       }
@@ -169,8 +172,8 @@ class DinoGame {
     const difficultyLevel = Math.floor(this.score / 200);
     this.gameSpeed = this.initialGameSpeed + (difficultyLevel * 0.5);
     this.obstacleSpawnRate = Math.max(
-      this.minObstacleSpawnRate, 
-      120 - (difficultyLevel * 10)
+      this.minObstacleSpawnRate,
+      120 - (difficultyLevel * 10),
     );
   }
 
@@ -183,13 +186,13 @@ class DinoGame {
   }
 
   loadHighScore() {
-    return parseInt(localStorage.getItem('dinoHighScore')) || 0;
+    return parseInt(localStorage.getItem("dinoHighScore")) || 0;
   }
 
   saveHighScore() {
     if (Math.floor(this.score) > this.highScore) {
       this.highScore = Math.floor(this.score);
-      localStorage.setItem('dinoHighScore', this.highScore);
+      localStorage.setItem("dinoHighScore", this.highScore);
       console.log(`🏆 New High Score: ${this.highScore}!`);
     }
   }
@@ -261,37 +264,68 @@ class DinoGame {
 
   drawObstacles() {
     this.ctx.fillStyle = "#2E7D32";
-    
+
     for (let obstacle of this.obstacles) {
       // Draw main cactus body
-      this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-      
+      this.ctx.fillRect(
+        obstacle.x,
+        obstacle.y,
+        obstacle.width,
+        obstacle.height,
+      );
+
       // Add cactus details based on type
       this.ctx.fillStyle = "#1B5E20";
-      if (obstacle.type === 'cactus-small') {
+      if (obstacle.type === "cactus-small") {
         // Small spikes
         this.ctx.fillRect(obstacle.x - 3, obstacle.y + 10, 6, 4);
-        this.ctx.fillRect(obstacle.x + obstacle.width - 3, obstacle.y + 20, 6, 4);
-      } else if (obstacle.type === 'cactus-medium') {
+        this.ctx.fillRect(
+          obstacle.x + obstacle.width - 3,
+          obstacle.y + 20,
+          6,
+          4,
+        );
+      } else if (obstacle.type === "cactus-medium") {
         // Medium spikes
         this.ctx.fillRect(obstacle.x - 4, obstacle.y + 8, 8, 6);
-        this.ctx.fillRect(obstacle.x + obstacle.width - 4, obstacle.y + 15, 8, 6);
-        this.ctx.fillRect(obstacle.x + obstacle.width / 2 - 2, obstacle.y + 25, 4, 8);
-      } else if (obstacle.type === 'cactus-wide') {
+        this.ctx.fillRect(
+          obstacle.x + obstacle.width - 4,
+          obstacle.y + 15,
+          8,
+          6,
+        );
+        this.ctx.fillRect(
+          obstacle.x + obstacle.width / 2 - 2,
+          obstacle.y + 25,
+          4,
+          8,
+        );
+      } else if (obstacle.type === "cactus-wide") {
         // Wide cactus with multiple arms
         this.ctx.fillRect(obstacle.x - 5, obstacle.y + 5, 10, 8);
-        this.ctx.fillRect(obstacle.x + obstacle.width - 5, obstacle.y + 10, 10, 8);
-        this.ctx.fillRect(obstacle.x + obstacle.width / 2 - 3, obstacle.y + 20, 6, 6);
+        this.ctx.fillRect(
+          obstacle.x + obstacle.width - 5,
+          obstacle.y + 10,
+          10,
+          8,
+        );
+        this.ctx.fillRect(
+          obstacle.x + obstacle.width / 2 - 3,
+          obstacle.y + 20,
+          6,
+          6,
+        );
       }
-      
+
       this.ctx.fillStyle = "#2E7D32"; // Reset color for next obstacle
     }
   }
 
   drawDino() {
     // Animate dino legs when running (simple animation)
-    const legOffset = this.gameState === "playing" && !this.dino.isJumping 
-      ? Math.floor(this.frameCount / 10) % 2 * 2 : 0;
+    const legOffset = this.gameState === "playing" && !this.dino.isJumping
+      ? Math.floor(this.frameCount / 10) % 2 * 2
+      : 0;
 
     this.ctx.fillStyle = "#4CAF50";
     this.ctx.fillRect(
@@ -311,8 +345,18 @@ class DinoGame {
     // Simple legs with running animation
     if (!this.dino.isJumping) {
       this.ctx.fillStyle = "#4CAF50";
-      this.ctx.fillRect(this.dino.x + 10, this.dino.y + 40 + legOffset, 6, 8 - legOffset);
-      this.ctx.fillRect(this.dino.x + 24, this.dino.y + 40 - legOffset, 6, 8 + legOffset);
+      this.ctx.fillRect(
+        this.dino.x + 10,
+        this.dino.y + 40 + legOffset,
+        6,
+        8 - legOffset,
+      );
+      this.ctx.fillRect(
+        this.dino.x + 24,
+        this.dino.y + 40 - legOffset,
+        6,
+        8 + legOffset,
+      );
     }
   }
 
@@ -325,25 +369,45 @@ class DinoGame {
     this.ctx.fillStyle = "#FFFFFF";
     this.ctx.font = "36px Arial";
     this.ctx.textAlign = "center";
-    this.ctx.fillText("GAME OVER", this.canvas.width / 2, this.canvas.height / 2 - 40);
+    this.ctx.fillText(
+      "GAME OVER",
+      this.canvas.width / 2,
+      this.canvas.height / 2 - 40,
+    );
 
     // Final score
     this.ctx.font = "20px Arial";
-    this.ctx.fillText(`Final Score: ${Math.floor(this.score)}`, this.canvas.width / 2, this.canvas.height / 2 - 5);
+    this.ctx.fillText(
+      `Final Score: ${Math.floor(this.score)}`,
+      this.canvas.width / 2,
+      this.canvas.height / 2 - 5,
+    );
 
     // High score
     if (Math.floor(this.score) === this.highScore && this.highScore > 0) {
       this.ctx.fillStyle = "#FFD700";
-      this.ctx.fillText("🏆 NEW HIGH SCORE! 🏆", this.canvas.width / 2, this.canvas.height / 2 + 25);
+      this.ctx.fillText(
+        "🏆 NEW HIGH SCORE! 🏆",
+        this.canvas.width / 2,
+        this.canvas.height / 2 + 25,
+      );
     } else if (this.highScore > 0) {
       this.ctx.fillStyle = "#CCCCCC";
-      this.ctx.fillText(`High Score: ${this.highScore}`, this.canvas.width / 2, this.canvas.height / 2 + 25);
+      this.ctx.fillText(
+        `High Score: ${this.highScore}`,
+        this.canvas.width / 2,
+        this.canvas.height / 2 + 25,
+      );
     }
 
     // Restart instruction
     this.ctx.fillStyle = "#FFFFFF";
     this.ctx.font = "16px Arial";
-    this.ctx.fillText("Click or press SPACE to restart", this.canvas.width / 2, this.canvas.height / 2 + 55);
+    this.ctx.fillText(
+      "Click or press SPACE to restart",
+      this.canvas.width / 2,
+      this.canvas.height / 2 + 55,
+    );
   }
 
   drawInstructions() {
@@ -410,5 +474,7 @@ async function checkHealth() {
 window.addEventListener("load", () => {
   checkHealth();
   new DinoGame();
-  console.log("🎯 Stage 3 complete: Full game with obstacles and collision detection!");
+  console.log(
+    "🎯 Stage 3 complete: Full game with obstacles and collision detection!",
+  );
 });

@@ -1,8 +1,9 @@
 <!DOCTYPE html <div class="game-info">
 <h2>Stage 3: Obstacles & Collision Detection</h2>
 <p>
-  Now we have a complete game! Jump over cacti, avoid collisions, and beat your high score.
-  Use <kbd>Space</kbd> or <kbd>↑</kbd> to jump. Click the canvas to start playing.
+  Now we have a complete game! Jump over cacti, avoid collisions, and beat your
+  high score. Use <kbd>Space</kbd> or <kbd>↑</kbd> to jump. Click the canvas to
+  start playing.
 </p>
 </div> lang="en">
 
@@ -31,7 +32,9 @@
         <div class="game-ui">
           <div class="score-container">
             <div class="score">Score: <span id="score">0</span></div>
-            <div class="high-score">High Score: <span id="highScore">0</span></div>
+            <div class="high-score">
+              High Score: <span id="highScore">0</span>
+            </div>
           </div>
           <div class="game-status" id="gameStatus">Click to Start!</div>
         </div>
@@ -81,20 +84,20 @@
     <section class="health-check">
       <h3>🔧 Server Status</h3>
       <p>
-        Server health check: <a href="/api/health" target="_blank">Health Check Endpoint</a>
+        Server health check: <a href="/api/health" target="_blank"
+        >Health Check Endpoint</a>
       </p>
       <p>
         <small>Should return:
           <code>{"status": "ok", "message": "🦕 Stage 1 - Dino server is
-              healthy!"}</code></small>
+            healthy!"}</code></small>
       </p>
     </section>
 
     <section class="next-steps">
       <h3>Ready for Stage 3?</h3>
       <p>
-        Stage 2 establishes our game canvas and controls. In Stage 3, we'll
-        add:
+        Stage 2 establishes our game canvas and controls. In Stage 3, we'll add:
       </p>
       <ul style="text-align: left; max-width: 400px; margin: 0 auto">
         <li>Obstacle generation and collision detection</li>
