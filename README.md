@@ -131,9 +131,9 @@ updateGameDifficulty() {
 
 ```html
 <div class="game-ui">
-  <div class="score-container">
-    <div class="score">Score: <span id="score">0</span></div>
-    <div class="high-score">High Score: <span id="highScore">0</span></div>
+  <div class="score">Score: <span id="score">0</span></div>
+  <div class="high-score">
+      High Score: <span id="highScore">0</span>
   </div>
   <div class="game-status" id="gameStatus">Click to Start!</div>
 </div>
