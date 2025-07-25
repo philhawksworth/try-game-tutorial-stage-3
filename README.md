@@ -19,9 +19,9 @@ Runner game.
 
 [![Deploy on Deno](https://deno.com/button)](https://app.deno.com/new?clone=https://github.com/thisisjofrank/game-tutorial-stage-3.git&install=deno+install)
 
-You will need to edit your Deno Deploy build configuration to set the entrypoint of the project to `src/main.ts`.
-Once deployed, you can clone the created project to your local machine to work
-on it.
+You will need to edit your Deno Deploy build configuration to set the entrypoint
+of the project to `src/main.ts`. Once deployed, you can clone the created
+project to your local machine to work on it.
 
 ## Project structure
 
@@ -42,14 +42,14 @@ Runner Game/
 └── README.md               # Documentation
 ```
 
-## What's New in Stage 3?
+## What's new in Stage 3?
 
 This stage completes the core game functionality by adding obstacles, collision
 detection, and a complete game over/restart cycle.
 
 ## `game.ts`
 
-### 1. Obstacle System
+### 1. Obstacle system
 
 In the client side `game.js` file, we added a system to spawn obstacles at
 random intervals. The obstacles are represented as objects with properties like
@@ -76,7 +76,7 @@ spawnObstacle() {
 }
 ```
 
-#### 2. Collision Detection
+#### 2. Collision detection
 
 We implemented a collision detection system that checks if the dino collides
 with any obstacles. If a collision is detected, the game transitions to the game
@@ -96,7 +96,7 @@ checkCollisions() {
 }
 ```
 
-#### 3. High Score System
+#### 3. High score system
 
 We added a high score system that tracks the highest score achieved during
 gameplay. The high score is saved in `localStorage` and displayed on the game
@@ -112,7 +112,7 @@ saveHighScore() {
 }
 ```
 
-#### 4. Progressive Difficulty
+#### 4. Progressive difficulty
 
 As the player progresses and scores points, the game becomes more challenging.
 We implemented a system to increase the game speed and obstacle spawn rate based
@@ -128,13 +128,13 @@ updateGameDifficulty() {
 
 ## `index.html`
 
-### 1. High Score Display Added
+### 1. High score display added
 
 ```html
 <div class="game-ui">
   <div class="score">Score: <span id="score">0</span></div>
   <div class="high-score">
-      High Score: <span id="highScore">0</span>
+    High Score: <span id="highScore">0</span>
   </div>
   <div class="game-status" id="gameStatus">Click to Start!</div>
 </div>
@@ -159,7 +159,7 @@ Navigate to [http://localhost:8000](http://localhost:8000) and experience the
 complete dino runner game with obstacles, collision detection, and high score
 tracking!
 
-## Stage 3 Accomplishments
+## Stage 3 accomplishments
 
 By completing Stage 3, you'll have:
 
