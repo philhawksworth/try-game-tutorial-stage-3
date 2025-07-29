@@ -1,7 +1,7 @@
-import { Application } from "jsr:@oak/oak/application";
+import { Application } from "@oak/oak/application";
 import { apiRouter } from "./routes/api.routes.ts";
 
-const PORT = parseInt(Deno.env.get("PORT") || "8000");
+const PORT = parseInt(Deno.env.get("PORT") || "8003");
 const HOST = Deno.env.get("HOST") || "localhost";
 
 const app = new Application();
@@ -26,6 +26,8 @@ app.listen({
   port: PORT,
 });
 
-console.log(`🦕 Server is running on http://${HOST}:${PORT}`);
-console.log(`🎯 Visit http://${HOST}:${PORT} to see the game`);
-console.log(`🔧 API health check at http://${HOST}:${PORT}/api/health`);
+const cachebust = `time=${new Date().toISOString()}`;
+
+console.log(`🦕 Server is running on http://${HOST}:${PORT}?${cachebust}`);
+console.log(`🎯 Visit http://${HOST}:${PORT}?${cachebust} to see the game`);
+console.log(`🔧 API health check at http://${HOST}:${PORT}/api/health?${cachebust}`);
