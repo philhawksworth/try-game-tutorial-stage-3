@@ -26,8 +26,6 @@ app.listen({
   port: PORT,
 });
 
-const cachebust = `time=${new Date().toISOString()}`;
-
-console.log(`🦕 Server is running on http://${HOST}:${PORT}?${cachebust}`);
-console.log(`🎯 Visit http://${HOST}:${PORT}?${cachebust} to see the game`);
-console.log(`🔧 API health check at http://${HOST}:${PORT}/api/health?${cachebust}`);
+console.log(`🦕 Server is running on http://${HOST}:${PORT}`);
+console.log(`🎯 Visit http://${HOST}:${PORT} to see the game`);
+console.log(`🔧 API health check at http://${HOST}:${PORT}/api/health`);
