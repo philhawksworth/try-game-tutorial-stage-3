@@ -5,23 +5,19 @@ TypeScript.
 
 ## Stage 3: Obstacles & Collision Detection
 
+This stage completes the core game functionality by adding obstacles, collision
+detection, and a complete game over/restart cycle.
+
 ### Getting started
-
-To run this project locally, you will need to install [Deno](https://deno.com/).
-
-```bash
-deno install
-deno run dev
-```
 
 You can clone and deploy this project immediately to start building the Dino
 Runner game.
 
-[![Deploy on Deno](https://deno.com/button)](https://app.deno.com/new?clone=https://github.com/thisisjofrank/game-tutorial-stage-3.git&install=deno+install)
+[![Deploy on Deno](https://deno.com/button)](https://app.deno.com/new?clone=https://github.com/thisisjofrank/game-tutorial-stage-3.git&install=deno+install&entrypoint=src/main.ts&mode=dynamic)
 
-You will need to edit your Deno Deploy build configuration to set the entrypoint
-of the project to `src/main.ts`. Once deployed, you can clone the created
-project to your local machine to work on it.
+Once deployed, you can clone the created project to your local machine to work
+on it. Every time you commit and push changes to the GitHub repository, it will
+automatically deploy to Deno Deploy and you can see the changes live.
 
 ## Project structure
 
@@ -41,11 +37,6 @@ Runner Game/
 ├── .env.example            # Environment variables template
 └── README.md               # Documentation
 ```
-
-## What's new in Stage 3?
-
-This stage completes the core game functionality by adding obstacles, collision
-detection, and a complete game over/restart cycle.
 
 ## `game.ts`
 
