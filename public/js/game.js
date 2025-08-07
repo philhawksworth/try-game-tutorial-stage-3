@@ -20,15 +20,15 @@ class DinoGame {
       x: 50,
       y: 150,
       width: 40,
-      height: 40,
+      height: 80,
       velocityY: 0,
       isJumping: false,
       groundY: 150,
     };
 
     // Physics
-    this.gravity = 0.6;
-    this.jumpStrength = -12;
+    this.gravity = 0.1;
+    this.jumpStrength = -14;
 
     // Ground
     this.groundY = 180;
